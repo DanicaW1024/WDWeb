@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en" data-intro="pending">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#000000">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Dan Wang — Computer Engineering and Artificial Intelligence student at HKUST. AI, robotics, software engineering and cybersecurity.">
+  <meta name="author" content="Dan Wang">
+  <meta property="og:title" content="Dan Wang — Computer Engineering & AI">
+  <meta property="og:description" content="BEng Computer Engineering (Extended Major in Artificial Intelligence) at HKUST. Artificial intelligence, robotics, software engineering and cybersecurity.">
+  <meta property="og:type" content="website">
+  <title>Dan Wang — Computer Engineering & AI</title>
+
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="preload" href="assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/styles.css">
+
+  <script>
+    (function () {
+      try {
+        if (sessionStorage.getItem('dw-intro-complete') === '1') {
+          document.documentElement.dataset.intro = 'played';
+        }
+      } catch (error) { /* Storage may be unavailable in strict privacy modes. */ }
+    }());
+  </script>
+</head>
+<body class="intro-active">
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Particle-only introduction. No text, no navigation, no interface. -->
+  <div class="intro" id="intro" aria-label="Animated WD logo introduction">
+    <div class="intro-bg" id="introBg" aria-hidden="true"></div>
+    <canvas class="intro-canvas" id="introCanvas" aria-hidden="true"></canvas>
+    <div class="intro-vignette" aria-hidden="true"></div>
+    <button class="sr-only" id="skipIntro" type="button">Skip intro</button>
+  </div>
+
+  <!-- Navigation -->
+  <header class="site-header" id="siteHeader">
+    <div class="nav">
+      <a class="brand" href="#home" aria-label="Dan Wang — home">
+        <span class="brand__mark"><img src="assets/wd-logo.png" alt="" width="38" height="25"></span>
+        <span class="brand__name">Dan Wang</span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <a class="nav-link is-active" href="#home" data-section="home">Home</a>
+        <a class="nav-link" href="#about" data-section="about">About Me</a>
+        <a class="nav-link" href="#projects" data-section="projects">Projects</a>
+        <a class="nav-link" href="#skills" data-section="skills">Skills</a>
+        <a class="nav-link" href="#languages" data-section="languages">Languages</a>
+        <a class="nav-link" href="#contact" data-section="contact">Contact</a>
+      </nav>
+
+      <div class="nav__right">
+        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <nav class="mobile-nav" aria-label="Mobile navigation">
+      <a href="#home" data-mobile-link>Home</a>
+      <a href="#about" data-mobile-link>About Me</a>
+      <a href="#projects" data-mobile-link>Projects</a>
+      <a href="#skills" data-mobile-link>Skills</a>
+      <a href="#languages" data-mobile-link>Languages</a>
+      <a href="#contact" data-mobile-link>Contact</a>
+    </nav>
+    <div class="mobile-menu__footer">
+      <a href="mailto:danicaw0826@gmail.com">danicaw0826@gmail.com</a>
+      <span>Hong Kong</span>
+    </div>
+  </div>
+
+  <div class="page" id="page">
+    <main id="main">
+
+      <!-- Hero -->
+      <section class="hero" id="home" aria-labelledby="heroTitle">
+        <div class="container hero__grid">
+          <div class="hero__copy">
+            <h1 class="hero__title" id="heroTitle" data-hero-reveal>
+              Dan Wang <span lang="zh-Hans">王丹</span>
+            </h1>
+
+            <div class="hero__education" data-hero-reveal>
+              <p>BEng Computer Engineering</p>
+              <p>Extended Major in Artificial Intelligence</p>
+            </div>
+
+            <div class="hero__actions" data-hero-reveal>
+              <a class="button button--light" href="#projects">View projects</a>
+              <a class="button button--dark" href="#contact">Contact me</a>
+            </div>
+
+            <div class="hero__contact" data-hero-reveal>
+              <a href="mailto:danicaw0826@gmail.com">danicaw0826@gmail.com</a>
+              <span class="dot" aria-hidden="true"></span>
+              <a href="tel:+85254916952">+852 5491 6952</a>
+            </div>
+          </div>
+
+          <div class="hero__visual">
+            <div class="logo-stage" id="logoStage" role="img" aria-label="Interactive particle rendering of the WD monogram. Move your cursor over the mark to disturb it.">
+              <div class="logo-glow" aria-hidden="true"></div>
+              <img class="logo-fallback" src="assets/wd-logo@3x.png" alt="WD monogram" width="585" height="384">
+              <canvas id="heroCanvas" class="hero-canvas" aria-hidden="true"></canvas>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- About -->
+      <section class="section" id="about" aria-labelledby="aboutTitle">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow" data-reveal>About</p>
+            <div class="section-head__row">
+              <h2 class="section-title" id="aboutTitle" data-reveal>
+                Engineering ideas<br>into reality.
+              </h2>
+              <p class="section-intro" data-reveal>
+                I like the part where a rough idea becomes something real — designed,
+                assembled, coded and working.
+              </p>
+            </div>
+          </div>
+
+          <div class="about__grid">
+            <div class="about__copy" data-reveal>
+              <p class="about__lead">
+                I’m <strong>Dan Wang</strong>, a third-year Computer Engineering student
+                at <strong>HKUST</strong>, pursuing an Extended Major in Artificial Intelligence.
+              </p>
+              <p>
+                Interested in Artificial Intelligence, Robotics, Software Engineering and
+                Cybersecurity.
+              </p>
+              <a class="text-link" href="mailto:danicaw0826@gmail.com">Get in touch <span aria-hidden="true">↗</span></a>
+            </div>
+
+            <div class="focus-list" data-reveal>
+              <div class="focus-row">
+                <span class="focus-row__number">01</span>
+                <div>
+                  <h3>Artificial Intelligence</h3>
+                  <p>Intelligent systems, models and useful automation.</p>
+                </div>
+              </div>
+              <div class="focus-row">
+                <span class="focus-row__number">02</span>
+                <div>
+                  <h3>Robotics</h3>
+                  <p>Physical computing, sensing and autonomous movement.</p>
+                </div>
+              </div>
+              <div class="focus-row">
+                <span class="focus-row__number">03</span>
+                <div>
+                  <h3>Software Engineering</h3>
+                  <p>Clean interfaces and systems built to be used.</p>
+                </div>
+              </div>
+              <div class="focus-row">
+                <span class="focus-row__number">04</span>
+                <div>
+                  <h3>Cybersecurity</h3>
+                  <p>Resilient systems and thoughtful technical practice.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section class="section" id="projects" aria-labelledby="projectsTitle">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow" data-reveal>Projects</p>
+            <div class="section-head__row">
+              <h2 class="section-title" id="projectsTitle" data-reveal>
+                Selected work.
+              </h2>
+            </div>
+          </div>
+
+          <div class="projects-grid">
+            <article class="project" data-reveal>
+              <div class="project__media">
+                <img src="picture/Bluetooth_Car.jpg" alt="Bluetooth-controlled smart car with yellow mecanum wheels, battery pack and Arduino electronics" width="1280" height="1707" loading="lazy" decoding="async">
+                <span class="project__award">3rd Place Overall</span>
+              </div>
+              <div class="project__body">
+                <p class="project__meta">Robotics · Mobile control</p>
+                <h3>Bluetooth Smart Car</h3>
+                <p class="project__description">
+                  Designed components in Fusion 360, fabricated via laser cutting, assembled
+                  electronic circuits, and developed a mobile control application using MIT App
+                  Inventor and Arduino motor control logic.
+                </p>
+                <p class="project__tags"><span>Fusion 360</span><span>Arduino</span><span>App Inventor</span></p>
+              </div>
+            </article>
+
+            <article class="project" data-reveal>
+              <div class="project__media">
+                <img src="picture/Line-Following_Robot_Car.jpg" alt="Line-following robot car with breadboard circuitry, wheels and blue chassis" width="1179" height="1094" loading="lazy" decoding="async">
+              </div>
+              <div class="project__body">
+                <p class="project__meta">Robotics · Sensing</p>
+                <h3>Line-Following Robot Car</h3>
+                <p class="project__description">
+                  Constructed an autonomous robot vehicle using infrared sensors, motor drivers,
+                  and Arduino programming for line tracking.
+                </p>
+                <p class="project__tags"><span>IR Sensors</span><span>Motor Driver</span><span>Arduino</span></p>
+              </div>
+            </article>
+
+            <article class="project" data-reveal>
+              <div class="project__media project__media--screens">
+                <img src="picture/hamster1.png" alt="Feeding Foggy hamster game bedroom screen" width="459" height="1062" loading="lazy" decoding="async">
+                <img src="picture/hamster2.png" alt="Feeding Foggy study timer screen" width="479" height="1043" loading="lazy" decoding="async">
+                <img src="picture/hamster3.png" alt="Feeding Foggy falling-food mini-game screen" width="459" height="1059" loading="lazy" decoding="async">
+              </div>
+              <div class="project__body">
+                <p class="project__meta">Game · Product lead</p>
+                <h3>Hamster Care Mini-Game</h3>
+                <p class="project__role">Team Leader &amp; Software Lead</p>
+                <p class="project__description">
+                  Developed a hamster-care mobile mini-game and coordinated software development
+                  within the team.
+                </p>
+                <a class="download-link" href="https://drive.google.com/file/d/1hfj9utNP11PQxYD93UrO8gNLVzRwfyzI/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
+                  Download Feeding Foggy
+                  <span aria-hidden="true">↓</span>
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills -->
+      <section class="section" id="skills" aria-labelledby="skillsTitle">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow" data-reveal>Skills</p>
+            <div class="section-head__row">
+              <h2 class="section-title" id="skillsTitle" data-reveal>
+                Tools I use<br>to build.
+              </h2>
+            </div>
+          </div>
+
+          <div class="skills-grid">
+            <div class="skill-group" data-reveal>
+              <h3>Programming</h3>
+              <div class="skill-list">
+                <div class="skill-row" role="progressbar" aria-label="C++ proficiency" aria-valuemin="0" aria-valuemax="100" aria-valuenow="82">
+                  <div class="skill-row__label"><span>C++</span></div>
+                  <div class="skill-bar"><span style="--level:82%"></span></div>
+                </div>
+                <div class="skill-row" role="progressbar" aria-label="Python proficiency" aria-valuemin="0" aria-valuemax="100" aria-valuenow="86">
+                  <div class="skill-row__label"><span>Python</span></div>
+                  <div class="skill-bar"><span style="--level:86%"></span></div>
+                </div>
+                <div class="skill-row" role="progressbar" aria-label="HTML proficiency" aria-valuemin="0" aria-valuemax="100" aria-valuenow="84">
+                  <div class="skill-row__label"><span>HTML</span></div>
+                  <div class="skill-bar"><span style="--level:84%"></span></div>
+                </div>
+                <div class="skill-row" role="progressbar" aria-label="CSS proficiency" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80">
+                  <div class="skill-row__label"><span>CSS</span></div>
+                  <div class="skill-bar"><span style="--level:80%"></span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="skill-group" data-reveal>
+              <h3>Hardware &amp; Prototyping</h3>
+              <div class="skill-list">
+                <div class="skill-row" role="progressbar" aria-label="Fusion 360 proficiency" aria-valuemin="0" aria-valuemax="100" aria-valuenow="82">
+                  <div class="skill-row__label"><span>Fusion 360</span></div>
+                  <div class="skill-bar"><span style="--level:82%"></span></div>
+                </div>
+                <div class="skill-row" role="progressbar" aria-label="MIT App Inventor proficiency" aria-valuemin="0" aria-valuemax="100" aria-valuenow="88">
+                  <div class="skill-row__label"><span>MIT App Inventor</span></div>
+                  <div class="skill-bar"><span style="--level:88%"></span></div>
+                </div>
+                <div class="skill-row" role="progressbar" aria-label="Laser cutting proficiency" aria-valuemin="0" aria-valuemax="100" aria-valuenow="85">
+                  <div class="skill-row__label"><span>Laser Cutting</span></div>
+                  <div class="skill-bar"><span style="--level:85%"></span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="skill-group" data-reveal>
+              <h3>Documentation &amp; Office</h3>
+              <div class="skill-list">
+                <div class="skill-row" role="progressbar" aria-label="Microsoft Excel proficiency" aria-valuemin="0" aria-valuemax="100" aria-valuenow="88">
+                  <div class="skill-row__label"><span>Microsoft Excel</span></div>
+                  <div class="skill-bar"><span style="--level:88%"></span></div>
+                </div>
+                <div class="skill-row" role="progressbar" aria-label="Microsoft Word proficiency" aria-valuemin="0" aria-valuemax="100" aria-valuenow="92">
+                  <div class="skill-row__label"><span>Microsoft Word</span></div>
+                  <div class="skill-bar"><span style="--level:92%"></span></div>
+                </div>
+                <div class="skill-row" role="progressbar" aria-label="Microsoft PowerPoint proficiency" aria-valuemin="0" aria-valuemax="100" aria-valuenow="90">
+                  <div class="skill-row__label"><span>Microsoft PowerPoint</span></div>
+                  <div class="skill-bar"><span style="--level:90%"></span></div>
+                </div>
+                <div class="skill-row" role="progressbar" aria-label="Markdown proficiency" aria-valuemin="0" aria-valuemax="100" aria-valuenow="90">
+                  <div class="skill-row__label"><span>Markdown (Typora)</span></div>
+                  <div class="skill-bar"><span style="--level:90%"></span></div>
+                </div>
+                <div class="skill-row" role="progressbar" aria-label="Technical writing proficiency" aria-valuemin="0" aria-valuemax="100" aria-valuenow="84">
+                  <div class="skill-row__label"><span>Technical Writing</span></div>
+                  <div class="skill-bar"><span style="--level:84%"></span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Languages -->
+      <section class="section" id="languages" aria-label="Languages">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow" data-reveal>Languages</p>
+          </div>
+
+          <div class="languages-grid" data-reveal>
+            <div class="language-item">
+              <span class="language-item__native" lang="zh-Hans">普通话</span>
+              <h3>Mandarin</h3>
+              <p>Native</p>
+            </div>
+            <div class="language-item">
+              <span class="language-item__native" lang="zh-Hant">廣東話</span>
+              <h3>Cantonese</h3>
+              <p>Fluent</p>
+            </div>
+            <div class="language-item">
+              <span class="language-item__native">English</span>
+              <h3>English</h3>
+              <p>Professional</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section class="section contact" id="contact" aria-labelledby="contactTitle">
+        <div class="container">
+          <p class="eyebrow" data-reveal>Contact</p>
+          <h2 class="contact__motto" id="contactTitle" data-reveal>
+            Still Thinking. <span>Still Growing.</span>
+          </h2>
+
+          <div class="contact__details" data-reveal>
+            <div class="contact-row">
+              <span class="contact-row__label">Dan Wang · 王丹</span>
+              <a class="contact-row__value" href="mailto:danicaw0826@gmail.com">danicaw0826@gmail.com</a>
+              <button class="copy-button" type="button" data-copy="danicaw0826@gmail.com" aria-label="Copy email address">Copy</button>
+            </div>
+            <div class="contact-row">
+              <span class="contact-row__label">Phone</span>
+              <a class="contact-row__value" href="tel:+85254916952">+852 5491 6952</a>
+              <button class="copy-button" type="button" data-copy="+852 5491 6952" aria-label="Copy phone number">Copy</button>
+            </div>
+            <div class="contact-row contact-row--small">
+              <span class="contact-row__label">Local time</span>
+              <span class="contact-row__value" id="localTime">00:00:00</span>
+              <span class="contact-row__hint">Hong Kong · UTC+8</span>
+            </div>
+          </div>
+
+          <div class="contact__footer" data-reveal>
+            <a href="mailto:danicaw0826@gmail.com?subject=Internship%20opportunity%20for%20Dan%20Wang">Send a message <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <span>© <span id="year">2026</span> Dan Wang</span>
+        <span>Hong Kong</span>
+        <a href="#home">Back to top ↑</a>
+      </div>
+    </footer>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">
+    <span id="toastText">Copied to clipboard</span>
+  </div>
+
+  <noscript>
+    <style>
+      .intro { display: none !important; }
+      .site-header, .page { opacity: 1 !important; visibility: visible !important; }
+      [data-reveal] { opacity: 1 !important; transform: none !important; }
+      .hero__visual { opacity: 1 !important; }
+      .logo-fallback { opacity: 0.92 !important; }
+      .hero-canvas { display: none !important; }
+      .skill-bar span { width: var(--level) !important; }
+      body { overflow: auto !important; }
+    </style>
+  </noscript>
+
+  <script src="vendor/three.min.js"></script>
+  <script src="vendor/gsap.min.js"></script>
+  <script src="js/logo-data.js"></script>
+  <script src="js/logo-engine.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
