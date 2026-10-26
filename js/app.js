@@ -6,6 +6,8 @@
   'use strict';
 
   var SESSION_KEY = 'dw-intro-complete';
+  var HOME_LOGO_INTENSITY = 1.8;
+  var INTRO_LOGO_INTENSITY = 0.4;
   var logoSrc = window.WD_LOGO_DATA_URI || 'assets/wd-logo@3x.png';
   var prefersReduced = window.matchMedia
     ? window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -198,7 +200,7 @@
       heightRatio: 1,
       maxWidth: mobile ? 450 : 980,
       sizeScale: 1.15,
-      intensity: 1.18,
+      intensity: HOME_LOGO_INTENSITY,
       dprCap: 1.75,
       seed: 8192,
       startFormed: true,
@@ -336,11 +338,13 @@
     try {
       introEngine = new WDParticleLogo(introCanvas, {
         src: logoSrc,
-        count: mobile ? 4200 : 7200,
+        count: mobile ? 3600 : 9600,
         widthRatio: mobile ? 0.82 : 0.56,
         heightRatio: 0.64,
         maxWidth: mobile ? 400 : 640,
+        sizeScale: 1.15,
         dprCap: 1.8,
+        intensity: INTRO_LOGO_INTENSITY,
         seed: 12021,
         startFormed: false,
         active: false,
@@ -368,8 +372,10 @@
   function startIntroTimeline() {
     introEngine.setActive(true);
     introEngine.setReveal(0.008);
+    introEngine.setIntensity(INTRO_LOGO_INTENSITY);
 
     var reveal = { value: 0.008 };
+    var brightness = { value: INTRO_LOGO_INTENSITY };
 
     introTimeline = gsap.timeline({
       onComplete: function () { finishIntro(false); }
@@ -384,6 +390,16 @@
         introEngine.setReveal(reveal.value);
       }
     }, 0.15);
+
+    // Brighten steadily from the first faint particles to the formed mark.
+    introTimeline.to(brightness, {
+      value: HOME_LOGO_INTENSITY,
+      duration: 2.75,
+      ease: 'power1.inOut',
+      onUpdate: function () {
+        introEngine.setIntensity(brightness.value);
+      }
+    }, 0.2);
 
     // Gather smoothly, then hold for half a second.
     introTimeline.call(function () {
@@ -401,11 +417,12 @@
       ease: 'power2.inOut'
     }, 3.55);
 
+    // Let the formed mark reach full brightness before it starts moving.
     introTimeline.to('.intro-vignette', {
       opacity: 0,
-      duration: 1,
+      duration: 0.85,
       ease: 'power2.inOut'
-    }, 3.55);
+    }, 2.25);
 
     introTimeline.call(function () {
       revealSite(0.35);

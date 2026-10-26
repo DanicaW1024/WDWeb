@@ -672,6 +672,19 @@
     this.uniforms.uReveal.value = value;
   };
 
+  WDParticleLogo.prototype.setIntensity = function (value) {
+    if (!this.material) return;
+    var intensity = Math.max(0.01, value);
+    this.material.uniforms.uOpacity.value = intensity;
+    this.material.uniforms.uCore.value = intensity;
+    if (this.glowMaterial) {
+      this.glowMaterial.uniforms.uOpacity.value = 0.17 * intensity;
+    }
+    if (this.auraMaterial) {
+      this.auraMaterial.uniforms.uOpacity.value = 0.045 * intensity;
+    }
+  };
+
   WDParticleLogo.prototype.setActive = function (active) {
     this.running = Boolean(active);
     if (this.running) {

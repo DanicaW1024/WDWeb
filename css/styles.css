@@ -289,7 +289,8 @@ body.site-ready .page { opacity: 1; visibility: visible; }
 }
 .hero__grid {
   display: grid;
-  grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr);
+  grid-template-areas: "visual copy";
   align-items: center;
   gap: clamp(28px, 2.8vw, 40px);
 }
@@ -313,7 +314,7 @@ body.site-ready .page { opacity: 1; visibility: visible; }
   color: var(--text-tertiary);
 }
 
-.hero__copy { min-width: 0; }
+.hero__copy { grid-area: copy; min-width: 0; }
 .hero__education { margin-top: 24px; }
 .hero__education p {
   font-size: 16px;
@@ -352,7 +353,7 @@ body.site-ready .page { opacity: 1; visibility: visible; }
 .hero__contact a { transition: color 0.2s; }
 .hero__contact a:hover { color: var(--text); }
 
-.hero__visual { min-width: 0; }
+.hero__visual { grid-area: visual; min-width: 0; }
 .logo-stage {
   position: relative;
   width: 100%;
@@ -783,7 +784,7 @@ a.contact-row__value:hover { color: var(--accent); }
 
 @media (max-width: 860px) {
   .hero { min-height: auto; padding-top: calc(var(--nav-height) + 48px); }
-  .hero__grid { grid-template-columns: 1fr; gap: 22px; }
+  .hero__grid { grid-template-columns: 1fr; grid-template-areas: "copy" "visual"; gap: 22px; }
   .hero__title { font-size: clamp(70px, 15vw, 118px); }
   .hero__title span { display: inline-block; margin: 0 0 0 0.12em; font-size: 0.3em; }
   .hero__copy { max-width: 620px; }
